@@ -19,6 +19,8 @@ export default function Nav() {
                 </Link>
             </div>
             <div className="navbar-center">
+                <i className="fa-xl fa-solid fa-moon cursor-pointer"></i>
+                <i className="fa-xl fa-solid fa-sun cursor-pointer"></i>
             </div>
             <div className="navbar-end">
                 <Link to="/add" className="btn btn-accent btn-sm mx-1">Add Product</Link>
