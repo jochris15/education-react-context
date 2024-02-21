@@ -34,7 +34,7 @@ export default function Details({ url }) {
                         <img src={gearLoad} />
                     </div>
                 ) : (
-                    <div className="flex flex-col bg-base-100 my-6 items-center p-20  bg-gray-100 shadow">
+                    <div className="flex flex-col bg-base-100 my-6 items-center p-20  bg-base-200 shadow">
                         <img
                             src={product.imgUrl}
                             className="max-w-sm rounded-lg shadow mb-5"
