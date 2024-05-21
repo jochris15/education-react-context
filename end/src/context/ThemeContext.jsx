@@ -1,45 +1,35 @@
-import { createContext } from 'react';
-import { useState } from "react";
+import { createContext, useState } from 'react';
 
-// initial value
 export const themeContext = createContext({
-    currentTheme: "dark",
-    handleTheme: () => { },
+    currentTheme: "",
+    setCurrentTheme: () => { },
     theme: {
         light: {
-            dataTheme: "light"
+            dataTheme: ""
         },
         dark: {
-            dataTheme: "dark"
+            dataTheme: ""
         }
     }
-})
+});
 
-// provider
 export default function ThemeProvider({ children }) {
-    const [currentTheme, setCurrentTheme] = useState("dark")
-
-    function handleTheme() {
-        if (currentTheme == 'light') setCurrentTheme('dark')
-        else setCurrentTheme('light')
-    }
+    const [currentTheme, setCurrentTheme] = useState("light")
 
     return (
-        <themeContext.Provider value={
-            {
-                currentTheme,
-                handleTheme,
-                theme: {
-                    light: {
-                        dataTheme: "light"
-                    },
-                    dark: {
-                        dataTheme: "dark"
-                    }
+        <themeContext.Provider value={{
+            currentTheme,
+            setCurrentTheme,
+            theme: {
+                light: {
+                    dataTheme: "light"
+                },
+                dark: {
+                    dataTheme: "dark"
                 }
             }
-        }>
+        }}>
             {children}
         </themeContext.Provider>
-    )
+    );
 }
