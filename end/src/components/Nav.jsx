@@ -6,11 +6,6 @@ import { themeContext } from "../context/ThemeContext";
 export default function Nav() {
     const { currentTheme, setCurrentTheme } = useContext(themeContext)
 
-    function handleTheme() {
-        if (currentTheme == 'light') setCurrentTheme('dark')
-        else setCurrentTheme('light')
-    }
-
     return (<>
         <nav className="navbar sticky top-0 z-10 p-3 bg-base-200 shadow">
             <div className="navbar-start">
@@ -20,9 +15,9 @@ export default function Nav() {
             </div>
             <div className="navbar-center">
                 {currentTheme == 'light' ? (
-                    <i onClick={handleTheme} className="fa-xl fa-solid fa-moon cursor-pointer"></i>
+                    <i onClick={() => setCurrentTheme("dark")} className="fa-xl fa-solid fa-moon cursor-pointer"></i>
                 ) : (
-                    <i onClick={handleTheme} className="fa-xl fa-solid fa-sun cursor-pointer"></i>
+                    <i onClick={() => setCurrentTheme("light")} className="fa-xl fa-solid fa-sun cursor-pointer"></i>
                 )}
             </div>
         </nav>
