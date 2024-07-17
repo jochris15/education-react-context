@@ -187,7 +187,7 @@ export default function HomePage({ url }) {
 
     return (
         <>
-            <div id="PAGE-HOME" className="p-3">
+            <div id="PAGE-HOME" className="p-10">
                 {/* search */}
                 <form action="" method="get" className="flex justify-center items-center">
                     <input

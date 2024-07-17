@@ -4,10 +4,10 @@ import { useContext } from 'react';
 import { themeContext } from "../context/ThemeContext";
 
 export default function Nav() {
-    const { currentTheme, setCurrentTheme } = useContext(themeContext)
+    const { currentTheme, theme, setCurrentTheme } = useContext(themeContext)
 
     return (<>
-        <nav className="navbar sticky top-0 z-10 p-3 bg-base-200 shadow">
+        <nav className="navbar sticky top-0 z-10 p-3 bg-base-200 shadow" data-theme={theme[currentTheme].dataTheme}>
             <div className="navbar-start">
                 <Link to="/" className="text-2xl font-bold px-6">
                     <span className="text-accent">Hooman Ma Slave</span>

@@ -1,5 +1,7 @@
 import Card from "../components/Card";
 import { useState } from "react";
+import { useContext } from 'react';
+import { themeContext } from "../context/ThemeContext";
 
 export default function HomePage({ url }) {
     const [products, setProducts] = useState([
@@ -185,9 +187,11 @@ export default function HomePage({ url }) {
         }
     ]);
 
+    const { currentTheme, theme } = useContext(themeContext);
+
     return (
         <>
-            <div id="PAGE-HOME" className="p-3">
+            <div id="PAGE-HOME" className="p-10" data-theme={theme[currentTheme].dataTheme}>
                 {/* search */}
                 <form action="" method="get" className="flex justify-center items-center">
                     <input

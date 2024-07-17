@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 
 export default function BaseLayout() {
     return (
-        <div className="px-20">
+        <div>
             <Nav />
             <Outlet />
         </div>
