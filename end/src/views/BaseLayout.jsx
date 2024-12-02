@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Nav from '../components/Nav'
-
+import Navbar from '../components/Navbar'
 
 export default function BaseLayout() {
     return (
-        <div>
-            <Nav />
+        <>
+            <Navbar />
             <Outlet />
-        </div>
+        </>
     )
 }

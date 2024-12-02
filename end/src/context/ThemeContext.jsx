@@ -1,19 +1,21 @@
-import { createContext, useState } from 'react';
+import { useState } from 'react';
+import { createContext } from 'react';
 
 export const themeContext = createContext({
-    currentTheme: "",
+    currentTheme: '',
     setCurrentTheme: () => { },
     theme: {
         light: {
-            dataTheme: ""
+            bgColor: ''
         },
         dark: {
-            dataTheme: ""
+            bgColor: ''
         }
     }
 });
 
-export default function ThemeProvider({ children }) {
+
+export default function ThemeContext({ children }) {
     const [currentTheme, setCurrentTheme] = useState("light")
 
     return (
@@ -22,10 +24,10 @@ export default function ThemeProvider({ children }) {
             setCurrentTheme,
             theme: {
                 light: {
-                    dataTheme: "light"
+                    bgColor: 'p-5 bg-white'
                 },
                 dark: {
-                    dataTheme: "dark"
+                    bgColor: 'p-5 bg-gray-700'
                 }
             }
         }}>
