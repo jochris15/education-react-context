@@ -4,8 +4,10 @@ import Navbar from '../components/Navbar'
 export default function BaseLayout() {
     return (
         <>
-            <Navbar />
-            <Outlet />
+            <div className="p-5">
+                <Navbar />
+                <Outlet />
+            </div>
         </>
     )
 }

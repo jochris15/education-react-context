@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState } from 'react';
 import Toastify from 'toastify-js'
 import { useNavigate } from "react-router-dom";
+import baseUrl from '../baseUrl';
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
@@ -12,9 +13,9 @@ export default function LoginPage() {
         // karena submit itu ada refresh by default
         e.preventDefault()
         try {
-            const { data } = await axios.post(`https://h8-phase2-gc.vercel.app/apis/login`, { email, password })
+            const { data } = await axios.post(`${baseUrl}/apis/auth/login`, { email, password })
 
-            localStorage.setItem('access_token', data.data.access_token)
+            localStorage.setItem('access_token', data.data.token)
 
             navigate('/')
             Toastify({

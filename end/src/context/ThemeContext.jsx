@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
+// initial value dari context
+// skeleton aja
 export const themeContext = createContext({
-    currentTheme: '',
+    currentTheme: "",
     setCurrentTheme: () => { },
     theme: {
         light: {
-            bgColor: ''
+            bgColor: ""
         },
         dark: {
-            bgColor: ''
+            bgColor: ""
         }
     }
 });
-
 
 export default function ThemeContext({ children }) {
     const [currentTheme, setCurrentTheme] = useState("light")
@@ -24,14 +24,14 @@ export default function ThemeContext({ children }) {
             setCurrentTheme,
             theme: {
                 light: {
-                    bgColor: 'p-5 bg-white'
+                    bgColor: "bg-white p-5"
                 },
                 dark: {
-                    bgColor: 'p-5 bg-gray-700'
+                    bgColor: "bg-gray-700 p-5"
                 }
             }
         }}>
             {children}
         </themeContext.Provider>
-    );
+    )
 }

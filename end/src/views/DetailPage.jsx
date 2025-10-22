@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios'
+import baseUrl from "../baseUrl";
 
 export default function DetailPage() {
     const [product, setProduct] = useState([]);
@@ -11,7 +12,7 @@ export default function DetailPage() {
         try {
             setLoading(true)
 
-            const { data } = await axios.get(`https://h8-phase2-gc.vercel.app/apis/pub/branded-things/products/${id}`)
+            const { data } = await axios.get(`${baseUrl}/apis/pub/products/products/${id}`)
 
             setProduct(data.data)
         } catch (error) {

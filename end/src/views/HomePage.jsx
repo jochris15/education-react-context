@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/Card"
 import axios from 'axios'
 import gifLoading from '../components/assets/Bean Eater@1x-1.0s-200px-200px.svg'
+import baseUrl from "../baseUrl";
 
 export default function HomePage() {
     const [products, setProducts] = useState([]);
@@ -12,9 +13,9 @@ export default function HomePage() {
         try {
             setLoading(true)
 
-            const { data } = await axios.get(`https://h8-phase2-gc.vercel.app/apis/pub/branded-things/products?q=${search}&limit=12`)
+            const { data } = await axios.get(`${baseUrl}/apis/pub/products/products?q=${search}`)
 
-            setProducts(data.data.query)
+            setProducts(data.data)
         } catch (error) {
             console.log(error);
         } finally {

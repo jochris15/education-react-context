@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import axios from 'axios'
 import Toastify from 'toastify-js'
 import { useNavigate } from "react-router-dom";
+import baseUrl from "../baseUrl";
 
 export default function AddProductPage() {
     const [categories, setCategories] = useState([])
@@ -18,7 +19,7 @@ export default function AddProductPage() {
 
     async function fetchCategories() {
         try {
-            const { data } = await axios.get(`https://h8-phase2-gc.vercel.app/apis/branded-things/categories`, {
+            const { data } = await axios.get(`${baseUrl}/apis/products/categories`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.access_token}`
                 }
@@ -26,8 +27,10 @@ export default function AddProductPage() {
 
             setCategories(data.data)
         } catch (error) {
+            console.log(error);
+
             Toastify({
-                text: error.response.data.error,
+                text: error.response.data.message,
                 duration: 3000,
                 newWindow: true,
                 close: true,
@@ -64,7 +67,7 @@ export default function AddProductPage() {
         try {
             e.preventDefault()
 
-            const { data } = await axios.post(`https://h8-phase2-gc.vercel.app/apis/branded-things/products`, form, {
+            const { data } = await axios.post(`${baseUrl}/apis/products/products`, form, {
                 headers: {
                     Authorization: `Bearer ${localStorage.access_token}`
                 }

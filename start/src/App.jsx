@@ -4,9 +4,7 @@ import router from "./router";
 export default function App() {
     return (
         <>
-            <div className="p-5">
-                <RouterProvider router={router} />
-            </div >
+            <RouterProvider router={router} />
         </>
     )
 }
