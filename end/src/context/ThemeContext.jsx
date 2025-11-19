@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 
 // initial value dari context
 // skeleton aja
-export const themeContext = createContext({
+export const ThemeContext = createContext({
     currentTheme: "",
     setCurrentTheme: () => { },
     theme: {
@@ -15,11 +15,11 @@ export const themeContext = createContext({
     }
 });
 
-export default function ThemeContext({ children }) {
+export default function ContextProvider({ children }) {
     const [currentTheme, setCurrentTheme] = useState("light")
 
     return (
-        <themeContext.Provider value={{
+        <ThemeContext.Provider value={{
             currentTheme,
             setCurrentTheme,
             theme: {
@@ -32,6 +32,6 @@ export default function ThemeContext({ children }) {
             }
         }}>
             {children}
-        </themeContext.Provider>
+        </ThemeContext.Provider>
     )
 }

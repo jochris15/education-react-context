@@ -1,10 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react';
-import { themeContext } from "../context/ThemeContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Navbar() {
     const navigate = useNavigate()
-    const { currentTheme, setCurrentTheme, theme } = useContext(themeContext)
+    const { currentTheme, setCurrentTheme } = useContext(ThemeContext)
 
     function handleLogout() {
         localStorage.clear()
